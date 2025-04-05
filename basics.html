@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Básico | Curso JS</title>
+    <meta name="description" content="Curso completo e gratuito de JavaScript para iniciantes e avançados">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .concept-card {
+            border-left: 4px solid #f0db4f;
+            transition: all 0.3s;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .code-example {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .exercise {
+            background: #f0f8ff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-js-square me-2"></i>JS Course
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modules">Módulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Header -->
+    <header class="module-header bg-primary text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1><i class="fas fa-code me-2"></i>JavaScript Básico</h1>
+                    <p class="lead">Fundamentos essenciais para começar com JavaScript</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark"><i class="far fa-clock me-1"></i>2 semanas</span>
+                        <span class="badge bg-light text-dark"><i class="far fa-list-alt me-1"></i>10 aulas</span>
+                        <span class="badge bg-warning">básico</span>
+                        <span class="badge bg-warning">fundamentos</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="index.html#modules" class="btn btn-outline-light mt-3">
+                        <i class="fas fa-arrow-left me-1"></i> Voltar aos Módulos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Module Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="card mb-4 concept-card">
+                        <div class="card-body">
+                            <h3><i class="fas fa-variable me-2" id="variaveis"></i>Variáveis</h3>
+                            <p>Variáveis são containers para armazenar valores de dados. Em JavaScript temos 3 formas de declarar variáveis:</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-javascript">
+// var - escopo de função (mais antigo)
+var nome = "João";
+
+// let - escopo de bloco (pode ser reatribuída)
+let idade = 30;
+
+// const - escopo de bloco (não pode ser reatribuída)
+const PI = 3.14;
+                                </code></pre>
+                            </div>
+                            
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Dica:</strong> Prefira usar <code>const</code> por padrão e <code>let</code> quando precisar reatribuir valores. Evite <code>var</code>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 concept-card">
+                        <div class="card-body">
+                            <h3><i class="fas fa-database me-2" id="operadores"></i>Tipos de Dados</h3>
+                            <p>JavaScript tem tipos de dados dinâmicos, o mesmo valor pode conter diferentes tipos:</p>
+                            
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo</th>
+                                            <th>Descrição</th>
+                                            <th>Exemplo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>String</td>
+                                            <td>Texto</td>
+                                            <td><code>"Olá Mundo"</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number</td>
+                                            <td>Números inteiros ou decimais</td>
+                                            <td><code>42</code> ou <code>3.14</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Boolean</td>
+                                            <td>Verdadeiro ou falso</td>
+                                            <td><code>true</code> ou <code>false</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Array</td>
+                                            <td>Lista ordenada</td>
+                                            <td><code>[1, 2, 3]</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Object</td>
+                                            <td>Coleção de pares chave-valor</td>
+                                            <td><code>{nome: "João", idade: 30}</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3><i class="fas fa-pencil-alt me-2" id="exercicio-basico"></i>Exercício Prático</h3>
+                        <p>Crie variáveis para armazenar as seguintes informações sobre você:</p>
+                        <ol>
+                            <li>Seu nome (string)</li>
+                            <li>Sua idade (number)</li>
+                            <li>Se você está estudando JavaScript (boolean)</li>
+                            <li>Uma lista de seus 3 hobbies favoritos (array)</li>
+                            <li>Um objeto com informações sobre seu endereço (rua, cidade, CEP)</li>
+                        </ol>
+                        <button id="run-exercise" class="btn btn-primary">Verificar Resposta</button>
+                        <div id="exercise-result" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-list-ol me-2"></i>Conteúdo do Módulo</h4>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#variaveis" class="list-group-item list-group-item-action active">1. Variáveis e Tipos</a>
+                            <a href="#operadores" class="list-group-item list-group-item-action">2. Operadores</a>
+                            <a href="#" class="list-group-item list-group-item-action">3. Estruturas de Controle</a>
+                            <a href="#" class="list-group-item list-group-item-action">4. Conversão de Tipos</a>
+                            <a href="#exercicio-basico" class="list-group-item list-group-item-action">5. Trabalhando com Strings</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-trophy me-2"></i>Exercícios</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Calculadora Simples</li>
+                                <li>Conversor de Temperatura</li>
+                                <li>Verificador de Números</li>
+                            </ol>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Ver Todos</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-link me-2"></i>Links Úteis</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">MDN JavaScript</a></li>
+                                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                                <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools JavaScript</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2023 Curso JavaScript. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/libs/prism.js"></script>
+    <script src="js/modules/basics.js"></script>
+    <script>
+        // Exercício de variáveis
+        document.getElementById('run-exercise').addEventListener('click', function() {
+            // Solução esperada
+            const nome = "Seu Nome";
+            const idade = 25;
+            const estudandoJS = true;
+            const hobbies = ["Ler", "Programar", "Musica"];
+            const endereco = {
+                rua: "Rua Exemplo",
+                cidade: "Sua Cidade",
+                cep: "00000-000"
+            };
+            
+            const result = `
+                <div class="alert alert-success">
+                    <h5>Solução esperada:</h5>
+                    <pre><code class="language-javascript">
+const nome = "${nome}";
+const idade = ${idade};
+const estudandoJS = ${estudandoJS};
+const hobbies = ${JSON.stringify(hobbies, null, 2)};
+const endereco = ${JSON.stringify(endereco, null, 2)};
+                    </code></pre>
+                    <p class="mb-0">Verifique no console para mais exemplos.</p>
+                </div>
+            `;
+            
+            document.getElementById('exercise-result').innerHTML = result;
+            Prism.highlightAll();
+            
+            // Mostra exemplos no console
+            console.log("Exemplos de variáveis:");
+            console.log("Nome:", nome);
+            console.log("Idade:", idade);
+            console.log("Estudando JS:", estudandoJS);
+            console.log("Hobbies:", hobbies);
+            console.log("Endereço:", endereco);
+        });
+    </script>
+</body>
+</html>

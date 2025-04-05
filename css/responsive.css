@@ -1,0 +1,56 @@
+/* Estilos responsivos para todas as páginas */
+
+@media (max-width: 1199.98px) {
+    .module-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .module-header {
+        padding: 60px 0;
+    }
+    
+    .module-header .lead {
+        font-size: 1.1rem;
+    }
+    
+    .function-example, .dom-demo, .oop-concept, .async-concept {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 72px;
+    }
+    
+    .module-header {
+        text-align: center;
+    }
+    
+    .module-header .btn {
+        display: inline-block;
+        margin-top: 15px;
+    }
+    
+    .project-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .module-header h1 {
+        font-size: 2rem;
+    }
+    
+    .code-example pre {
+        padding: 10px !important;
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}

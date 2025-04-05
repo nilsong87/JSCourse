@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await | Curso JS</title>
+    <meta name="description" content="Curso completo e gratuito de JavaScript para iniciantes e avançados">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .async-concept {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .api-demo {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background: #fff;
+        }
+        .user-card {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-js-square me-2"></i>JS Course
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modules">Módulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Header -->
+    <header class="module-header bg-info text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1><i class="fas fa-clock me-2"></i>Async/Await</h1>
+                    <p class="lead">Trabalhando com operações assíncronas em JavaScript</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark"><i class="far fa-clock me-1"></i>2 semanas</span>
+                        <span class="badge bg-light text-dark"><i class="far fa-list-alt me-1"></i>8 aulas</span>
+                        <span class="badge bg-info-dark">async</span>
+                        <span class="badge bg-info-dark">API</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="index.html#modules" class="btn btn-outline-light mt-3">
+                        <i class="fas fa-arrow-left me-1"></i> Voltar aos Módulos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Module Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="async-concept">
+                        <h3><i class="fas fa-callback me-2" id="call"></i>Callbacks</h3>
+                        <p>O padrão original para lidar com operações assíncronas:</p>
+                        <pre><code class="language-javascript">
+function fetchData(callback) {
+    setTimeout(() => {
+        callback(null, { data: 'Dados recebidos' });
+    }, 1000);
+}
+
+fetchData((err, data) => {
+    if (err) {
+        console.error('Erro:', err);
+    } else {
+        console.log('Dados:', data);
+    }
+});
+                        </code></pre>
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Callback hell pode acontecer quando há muitas operações aninhadas.
+                        </div>
+                    </div>
+
+                    <div class="async-concept">
+                        <h3><i class="fas fa-promise me-2" id="promise"></i>Promises</h3>
+                        <p>Uma maneira mais limpa de lidar com operações assíncronas:</p>
+                        <pre><code class="language-javascript">
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            Math.random() > 0.5 
+                ? resolve({ data: 'Sucesso!' }) 
+                : reject(new Error('Falha!'));
+        }, 1000);
+    });
+}
+
+fetchData()
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+                        </code></pre>
+                    </div>
+
+                    <div class="async-concept">
+                        <h3><i class="fas fa-bolt me-2" id="async"></i>Async/Await</h3>
+                        <p>Sintaxe mais limpa para trabalhar com Promises:</p>
+                        <pre><code class="language-javascript">
+async function getData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Erro:', error);
+    }
+}
+
+getData();
+                        </code></pre>
+                    </div>
+
+                    <h3><i class="fas fa-cloud me-2" id="fetch"></i>Demonstração com API Real</h3>
+                    <div class="api-demo">
+                        <div class="mb-3">
+                            <button id="fetch-users" class="btn btn-primary">
+                                <i class="fas fa-users me-1"></i> Buscar Usuários
+                            </button>
+                            <button id="fetch-posts" class="btn btn-primary ms-2">
+                                <i class="fas fa-newspaper me-1"></i> Buscar Posts
+                            </button>
+                        </div>
+                        <div id="api-result"></div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-list-ol me-2"></i>Conteúdo do Módulo</h4>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#call" class="list-group-item list-group-item-action active">1. Callbacks</a>
+                            <a href="#promise" class="list-group-item list-group-item-action">2. Promises</a>
+                            <a href="#async" class="list-group-item list-group-item-action">3. Async/Await</a>
+                            <a href="#fetch" class="list-group-item list-group-item-action">4. Fetch API</a>
+                            <a href="#" class="list-group-item list-group-item-action">5. Tratamento de Erros</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-trophy me-2"></i>Projetos</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>App de Clima</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Lista de Tarefas Online</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Busca de Repositórios GitHub</li>
+                            </ul>
+                            <a href="examples/weather-app/" class="btn btn-sm btn-outline-primary">Ver Projetos</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Boas Práticas</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Sempre trate erros em Promises com <code>.catch()</code> ou <code>try/catch</code></li>
+                                <li>Use <code>Promise.all()</code> para múltiplas requisições paralelas</li>
+                                <li>Considere adicionar timeout para requisições demoradas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2023 Curso JavaScript. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/libs/prism.js"></script>
+    <script>
+        // Demonstração com API JSONPlaceholder
+        const API_URL = 'https://jsonplaceholder.typicode.com';
+        
+        async function fetchUsers() {
+            try {
+                const response = await fetch(`${API_URL}/users`);
+                if (!response.ok) {
+                    throw new Error('Falha ao buscar usuários');
+                }
+                const users = await response.json();
+                displayUsers(users.slice(0, 5)); // Mostra apenas 5 usuários
+            } catch (error) {
+                document.getElementById('api-result').innerHTML = `
+                    <div class="alert alert-danger">${error.message}</div>
+                `;
+            }
+        }
+        
+        async function fetchPosts() {
+            try {
+                const response = await fetch(`${API_URL}/posts`);
+                if (!response.ok) {
+                    throw new Error('Falha ao buscar posts');
+                }
+                const posts = await response.json();
+                displayPosts(posts.slice(0, 5)); // Mostra apenas 5 posts
+            } catch (error) {
+                document.getElementById('api-result').innerHTML = `
+                    <div class="alert alert-danger">${error.message}</div>
+                `;
+            }
+        }
+        
+        function displayUsers(users) {
+            let html = '<h4>Usuários</h4>';
+            users.forEach(user => {
+                html += `
+                    <div class="user-card">
+                        <h5>${user.name}</h5>
+                        <p>Email: ${user.email}</p>
+                        <p>Website: ${user.website}</p>
+                    </div>
+                `;
+            });
+            document.getElementById('api-result').innerHTML = html;
+        }
+        
+        function displayPosts(posts) {
+            let html = '<h4>Posts</h4>';
+            posts.forEach(post => {
+                html += `
+                    <div class="user-card">
+                        <h5>${post.title}</h5>
+                        <p>${post.body}</p>
+                    </div>
+                `;
+            });
+            document.getElementById('api-result').innerHTML = html;
+        }
+        
+        document.getElementById('fetch-users').addEventListener('click', fetchUsers);
+        document.getElementById('fetch-posts').addEventListener('click', fetchPosts);
+    </script>
+</body>
+</html>

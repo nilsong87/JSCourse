@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo de JavaScript - Grátis</title>
+    <meta name="description" content="Curso completo e gratuito de JavaScript para iniciantes e avançados">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-js-square me-2"></i>JS Course
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modules">Módulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section py-5">
+        <div class="container py-5">
+            <div class="row align-items-center py-5">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Curso Completo de JavaScript</h1>
+                    <p class="lead mb-4">Aprenda JavaScript do básico ao avançado com projetos práticos e exemplos
+                        reais. 100% gratuito!</p>
+                    <div class="d-flex gap-3">
+                        <a href="#modules" class="btn btn-primary btn-lg px-4">Começar Agora</a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg px-4">Ver Projetos</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript" class="img-fluid" width="300">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modules Section -->
+    <section id="modules" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Módulos do Curso</h2>
+            <div class="row g-4" id="modules-container">
+                <!-- Module cards will be loaded dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5">Projetos Práticos</h2>
+            <div class="filter-buttons mb-4 text-center">
+                <button class="btn btn-sm btn-outline-primary active" data-filter="all">Todos</button>
+                <button class="btn btn-sm btn-outline-primary" data-filter="iniciante">Iniciante</button>
+                <button class="btn btn-sm btn-outline-primary" data-filter="intermediario">Intermediário</button>
+                <button class="btn btn-sm btn-outline-primary" data-filter="avancado">Avançado</button>
+            </div>
+            <div class="row g-4" id="projects-container">
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="assets/images/calculadora.jpg" class="card-img-top" alt="Calculadora">
+                        <div class="card-body">
+                            <h5 class="card-title">Calculadora</h5>
+                            <p class="card-text">Calculadora completa com operações básicas e memória.</p>
+                            <a href="examples/calculator/" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge bg-primary">Iniciante</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="assets/images/lista-tarefas.jpg" class="card-img-top" alt="Lista de Tarefas">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de Tarefas</h5>
+                            <p class="card-text">Aplicativo para gerenciar tarefas com armazenamento local.</p>
+                            <a href="examples/todo-app/" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge bg-success">Intermediário</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="assets/images/clima.jpg" class="card-img-top" alt="Clima">
+                        <div class="card-body">
+                            <h5 class="card-title">App de Clima</h5>
+                            <p class="card-text">Aplicativo que mostra previsão do tempo usando API pública.</p>
+                            <a href="examples/weather-app/" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge bg-warning text-dark">Avançado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Example Section -->
+    <section class="py-5 bg-dark text-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Exemplo de Código</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Função para buscar dados de API</h4>
+                    <p class="mb-4">Este exemplo mostra como fazer uma requisição assíncrona usando Fetch API.</p>
+                    <button id="run-code" class="btn btn-warning mb-3">Executar Código</button>
+                    <div id="code-output" class="p-3 bg-secondary rounded d-none">
+                        <p class="mb-0">Resultado aparecerá aqui...</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <pre class="bg-black p-3 rounded"><code class="language-javascript">
+// Função assíncrona para buscar dados
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Erro na requisição');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro:', error);
+        return null;
+    }
+}
+
+// Uso da função
+fetchData('https://api.example.com/data')
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Recursos Adicionais</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card resource-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-book fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Documentação</h5>
+                            <p class="card-text">Links para documentação oficial e referências</p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card resource-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-video fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Vídeo Aulas</h5>
+                            <p class="card-text">Aulas em vídeo complementares</p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card resource-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-file-pdf fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">PDFs</h5>
+                            <p class="card-text">Materiais em PDF para download</p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card resource-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center py-4">
+                            <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Exercícios</h5>
+                            <p class="card-text">Lista de exercícios para praticar</p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Fale Conosco</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="name" required>
+                            <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">Por favor, insira um email válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <div class="invalid-feedback">Por favor, escreva sua mensagem.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h5 class="mb-3">Sobre o Curso</h5>
+                    <p>Curso completo e gratuito de JavaScript criado para ajudar desenvolvedores a dominarem essa
+                        linguagem poderosa.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Início</a></li>
+                        <li class="mb-2"><a href="#modules" class="text-white text-decoration-none">Módulos</a></li>
+                        <li class="mb-2"><a href="#projects" class="text-white text-decoration-none">Projetos</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Redes Sociais</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://github.com/nilsong87/" class="text-white me-3"><i
+                                class="fab fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Curso JavaScript. Todos os direitos reservados a Nilson Gomes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js?v=1.0"></script>
+    <script src="js/modules/basics.js"></script>
+    <script src="js/modules/functions.js"></script>
+    <script src="js/modules/dom.js"></script>
+    <script src="js/modules/oop.js"></script>
+    <script src="js/modules/async.js"></script>
+    <script src="js/modules/projects.js"></script>
+</body>
+
+</html>

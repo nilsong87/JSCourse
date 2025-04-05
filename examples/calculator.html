@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora JavaScript</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+        }
+        
+        .calculator-screen {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 2rem;
+            text-align: right;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        
+        button {
+            height: 60px;
+            font-size: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background-color: #eee;
+        }
+        
+        .operator {
+            background-color: #f0db4f;
+            color: #323330;
+        }
+        
+        .equal-sign {
+            background-color: #4CAF50;
+            color: white;
+            grid-row: span 4;
+            height: auto;
+        }
+        
+        .all-clear {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" value="" disabled />
+        
+        <div class="calculator-keys">
+            <button type="button" class="operator" value="+">+</button>
+            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="operator" value="*">&times;</button>
+            <button type="button" class="operator" value="/">&divide;</button>
+            
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            
+            <button type="button" value="0">0</button>
+            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="all-clear" value="all-clear">AC</button>
+            
+            <button type="button" class="equal-sign" value="=">=</button>
+        </div>
+    </div>
+
+    <script>
+        class Calculator {
+            constructor() {
+                this.previousValue = '';
+                this.currentValue = '';
+                this.operation = null;
+                this.resetScreen = false;
+                
+                this.screen = document.querySelector('.calculator-screen');
+                this.buttons = document.querySelectorAll('button');
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                this.buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const value = button.value;
+                        
+                        if (!isNaN(value) || value === '.') {
+                            this.appendNumber(value);
+                        } else if (['+', '-', '*', '/'].includes(value)) {
+                            this.setOperation(value);
+                        } else if (value === '=') {
+                            this.calculate();
+                        } else if (value === 'all-clear') {
+                            this.clearAll();
+                        }
+                        
+                        this.updateScreen();
+                    });
+                });
+            }
+
+            appendNumber(number) {
+                if (this.resetScreen) {
+                    this.currentValue = '';
+                    this.resetScreen = false;
+                }
+                
+                if (number === '.' && this.currentValue.includes('.')) return;
+                this.currentValue += number;
+            }
+
+            setOperation(operation) {
+                if (this.currentValue === '') return;
+                if (this.previousValue !== '') {
+                    this.calculate();
+                }
+                
+                this.operation = operation;
+                this.previousValue = this.currentValue;
+                this.currentValue = '';
+            }
+
+            calculate() {
+                let result;
+                const prev = parseFloat(this.previousValue);
+                const current = parseFloat(this.currentValue);
+                
+                if (isNaN(prev) || isNaN(current)) return;
+                
+                switch (this.operation) {
+                    case '+':
+                        result = prev + current;
+                        break;
+                    case '-':
+                        result = prev - current;
+                        break;
+                    case '*':
+                        result = prev * current;
+                        break;
+                    case '/':
+                        result = prev / current;
+                        break;
+                    default:
+                        return;
+                }
+                
+                this.currentValue = result.toString();
+                this.operation = null;
+                this.previousValue = '';
+                this.resetScreen = true;
+            }
+
+            clearAll() {
+                this.currentValue = '';
+                this.previousValue = '';
+                this.operation = null;
+            }
+
+            updateScreen() {
+                this.screen.value = this.currentValue;
+            }
+        }
+
+        // Initialize the calculator when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Calculator();
+        });
+    </script>
+</body>
+</html>

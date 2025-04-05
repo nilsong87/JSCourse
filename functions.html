@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em JavaScript | Curso JS</title>
+    <meta name="description" content="Curso completo e gratuito de JavaScript para iniciantes e avançados">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .function-demo {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #6f42c1;
+        }
+
+        #function-playground {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background: #e2f0fd;
+        }
+
+        .code-result {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-js-square me-2"></i>JS Course
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modules">Módulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Header -->
+    <header class="module-header text-white py-5" style="background-color: #6f42c1;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold"><i class="fas fa-cogs me-2"></i>Funções em JavaScript</h1>
+                    <p class="lead">Domine os diferentes tipos de funções e seus usos em JavaScript</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark"><i class="far fa-clock me-1"></i>1 semana</span>
+                        <span class="badge bg-light text-dark"><i class="far fa-list-alt me-1"></i>6 aulas</span>
+                        <span class="badge bg-primary-light">funções</span>
+                        <span class="badge bg-primary-light">escopo</span>
+                        <span class="badge bg-primary-light">closures</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="index.html#modules" class="btn btn-outline-light mt-3">
+                        <i class="fas fa-arrow-left me-1"></i> Voltar aos Módulos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Module Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="function-demo">
+                        <h3><i class="fas fa-code me-2" id="declaration"></i>Function Declaration</h3>
+                        <p>Declaração tradicional de função que pode ser chamada antes da declaração (hoisting).</p>
+                        <pre><code class="language-javascript">
+// Function Declaration
+function saudacao(nome) {
+    return `Olá, ${nome}!`;
+}
+
+// Chamada da função
+console.log(saudacao("Maria")); // "Olá, Maria!"
+                        </code></pre>
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2" id="Expression"></i>Function declarations são içadas (hoisted) para o topo do escopo.
+                        </div>
+                    </div>
+
+                    <div class="function-demo">
+                        <h3><i class="fas fa-bolt me-2" id="arrow"></i>Arrow Functions (ES6+)</h3>
+                        <p>Sintaxe mais concisa e não vincula seu próprio <code>this</code>.</p>
+                        <pre><code class="language-javascript">
+// Arrow Function básica
+const quadrado = (num) => num * num;
+
+// Arrow Function com múltiplos parâmetros
+const soma = (a, b) => a + b;
+
+// Arrow Function com corpo de bloco
+const fatorial = (n) => {
+    if (n <= 1) return 1;
+    return n * fatorial(n - 1);
+};
+
+console.log(quadrado(5)); // 25
+console.log(soma(2, 3));  // 5
+console.log(fatorial(4)); // 24
+                        </code></pre>
+                    </div>
+
+                    <h3><i class="fas fa-play-circle me-2" id="argumentos"></i>Área de Testes</h3>
+                    <div id="function-playground" class="mb-4">
+                        <div class="mb-3">
+                            <label for="function-input" class="form-label">Digite um número:</label>
+                            <input type="number" id="function-input" class="form-control mb-2" placeholder="Ex: 5">
+                            <div class="d-flex gap-2">
+                                <button id="calculate-factorial" class="btn btn-primary">Calcular Fatorial</button>
+                                <button id="calculate-fibonacci" class="btn btn-primary">Calcular Fibonacci</button>
+                                <button id="reset-function" class="btn btn-outline-secondary">Limpar</button>
+                            </div>
+                        </div>
+                        <div id="function-result" class="code-result"></div>
+                    </div>
+
+                    <div class="function-demo">
+                        <h3><i class="fas fa-layer-group me-2" id="closures"></i>Closures</h3>
+                        <p>Funções que "lembram" do ambiente em que foram criadas, mesmo após a execução da função externa.</p>
+                        <pre><code class="language-javascript">
+function criarContador() {
+    let contador = 0;
+    
+    return function() {
+        contador++;
+        return contador;
+    };
+}
+
+const meuContador = criarContador();
+
+console.log(meuContador()); // 1
+console.log(meuContador()); // 2
+console.log(meuContador()); // 3
+                        </code></pre>
+                        <button id="run-counter" class="btn btn-sm btn-primary mt-2">Executar Contador</button>
+                        <div id="counter-result" class="code-result mt-2"></div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-list-ol me-2"></i>Conteúdo do Módulo</h4>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#declaration" class="list-group-item list-group-item-action active">1. Function Declaration</a>
+                            <a href="#Expression" class="list-group-item list-group-item-action">2. Function Expression</a>
+                            <a href="#arrow" class="list-group-item list-group-item-action">3. Arrow Functions</a>
+                            <a href="#argumentos" class="list-group-item list-group-item-action">4. Parâmetros e Argumentos</a>
+                            <a href="#closures" class="list-group-item list-group-item-action">5. Escopo e Closures</a>
+                            <a href="#" class="list-group-item list-group-item-action">6. Funções de Alta Ordem</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-trophy me-2"></i>Desafios Práticos</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol class="mb-3">
+                                <li class="mb-2">Criar uma calculadora com funções</li>
+                                <li class="mb-2">Implementar um map personalizado</li>
+                                <li class="mb-2">Criar um gerador de senhas aleatórias</li>
+                                <li>Desenvolver um validador de formulário</li>
+                            </ol>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Ver Todos</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Boas Práticas</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="mb-3">
+                                <li class="mb-2">Use nomes descritivos para funções</li>
+                                <li class="mb-2">Mantenha as funções pequenas e com um único propósito</li>
+                                <li class="mb-2">Evite efeitos colaterais quando possível</li>
+                                <li>Documente funções complexas com comentários</li>
+                            </ul>
+                            <button id="show-tips" class="btn btn-sm btn-outline-primary">Mais Dicas</button>
+                            <div id="more-tips" class="mt-2 d-none">
+                                <p class="small mb-1">• Use parâmetros padrão para maior flexibilidade</p>
+                                <p class="small mb-1">• Considere usar arrow functions para callbacks</p>
+                                <p class="small">• Teste suas funções com diferentes inputs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Sobre o Curso</h5>
+                    <p>Curso completo e gratuito de JavaScript criado para ajudar desenvolvedores a dominarem essa linguagem poderosa.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Início</a></li>
+                        <li><a href="#modules" class="text-white">Módulos</a></li>
+                        <li><a href="#projects" class="text-white">Projetos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Redes Sociais</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Curso JavaScript. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script>
+        // Funções para a área interativa
+        function fatorial(n) {
+            if (n < 0) return "Número inválido (deve ser ≥ 0)";
+            if (n === 0 || n === 1) return 1;
+            return n * fatorial(n - 1);
+        }
+
+        function fibonacci(n) {
+            if (n < 0) return "Número inválido (deve ser ≥ 0)";
+            if (n <= 1) return n;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        // Event listeners para os botões
+        document.getElementById('calculate-factorial').addEventListener('click', function() {
+            const input = document.getElementById('function-input');
+            const num = parseInt(input.value);
+            
+            if (isNaN(num)) {
+                alert('Por favor, digite um número válido');
+                input.focus();
+                return;
+            }
+            
+            const result = fatorial(num);
+            document.getElementById('function-result').innerHTML = 
+                `<strong>Fatorial de ${num}:</strong> ${result}`;
+        });
+
+        document.getElementById('calculate-fibonacci').addEventListener('click', function() {
+            const input = document.getElementById('function-input');
+            const num = parseInt(input.value);
+            
+            if (isNaN(num)) {
+                alert('Por favor, digite um número válido');
+                input.focus();
+                return;
+            }
+            
+            const result = fibonacci(num);
+            document.getElementById('function-result').innerHTML = 
+                `<strong>Fibonacci(${num}):</strong> ${result}`;
+        });
+
+        document.getElementById('reset-function').addEventListener('click', function() {
+            document.getElementById('function-input').value = '';
+            document.getElementById('function-result').innerHTML = '';
+        });
+
+        // Demonstração de closure (contador)
+        document.getElementById('run-counter').addEventListener('click', function() {
+            function criarContador() {
+                let contador = 0;
+                return function() {
+                    contador++;
+                    return contador;
+                };
+            }
+
+            const meuContador = criarContador();
+            let output = '';
+            
+            for (let i = 0; i < 5; i++) {
+                output += `Contador: ${meuContador()}<br>`;
+            }
+            
+            document.getElementById('counter-result').innerHTML = output;
+        });
+
+        // Mostrar mais dicas
+        document.getElementById('show-tips').addEventListener('click', function() {
+            document.getElementById('more-tips').classList.toggle('d-none');
+        });
+
+        // Highlight do código
+        Prism.highlightAll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+curso-javascript/
+├── index.html
+├── css/
+│   ├── style.css
+│   ├── responsive.css
+│   └── prism.css
+├── js/
+│   ├── main.js
+│   ├── modules/
+│   │   ├── basics.js
+│   │   ├── functions.js
+│   │   ├── dom.js
+│   │   ├── oop.js
+│   │   ├── async.js
+│   │   └── projects.js
+│   └── libs/
+│       ├── chart.js
+│       └── particles.js
+├── assets/
+│   ├── images/
+│   ├── videos/
+│   └── pdfs/
+├── examples/
+│   ├── calculator/
+│   ├── todo-app/
+│   └── weather-app/
+└── lib/
+    ├── bootstrap/
+    ├── fontawesome/
+    ├── prism/
+    └── jquery/
