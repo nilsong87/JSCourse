@@ -9,8 +9,8 @@ class ProjectsModule {
           level: 'Iniciante',
           tags: ['DOM', 'Eventos', 'Funções'],
           image: 'https://i.ytimg.com/vi/30AWy90GMJc/hq720.jpg',
-          link: 'examples/calculator/',
-          codeLink: 'https://github.com/seu-usuario/curso-javascript/tree/main/examples/calculator'
+          link: 'https://nilsong87.github.io/Calculadora/',
+          codeLink: 'https://github.com/nilsong87/Calculadora.git'
         },
         {
           id: 'todo-app',
@@ -19,8 +19,8 @@ class ProjectsModule {
           level: 'Intermediário',
           tags: ['LocalStorage', 'CRUD', 'Event Delegation'],
           image: 'https://i.ytimg.com/vi/-yu0nBthAdo/maxresdefault.jpg',
-          link: 'examples/todo-app/',
-          codeLink: 'https://github.com/seu-usuario/curso-javascript/tree/main/examples/todo-app'
+          link: 'https://nilsong87.github.io/Lista-de-Tarefas/',
+          codeLink: 'https://github.com/nilsong87/Lista-de-Tarefas.git'
         },
         {
           id: 'weather-app',
@@ -29,8 +29,8 @@ class ProjectsModule {
           level: 'Avançado',
           tags: ['Fetch API', 'Async/Await', 'Geolocation'],
           image: 'https://www.brasilcode.com.br/wp-content/uploads/2024/09/aplicativo-de-clima.jpg',
-          link: 'examples/weather-app/',
-          codeLink: 'https://github.com/seu-usuario/curso-javascript/tree/main/examples/weather-app'
+          link: 'https://nilsong87.github.io/App-Clima/',
+          codeLink: 'https://github.com/nilsong87/App-Clima.git'
         }
       ];
       
